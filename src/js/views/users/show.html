@@ -4,6 +4,8 @@
 <h2>My Surveys:</h2>
 <ul>
   <li ng-repeat="survey in usersShow.user.surveys">
-    <p>{{survey.title}}</p>
+    <p><a ui-sref="surveyShow({ id: survey.id })">{{survey.title}}</a></p>
   </li>
 </ul>
+
+<a ng-click="main.logout()">Logout</a>
