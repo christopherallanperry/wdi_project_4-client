@@ -2,5 +2,6 @@ angular
   .module('myApp', [
     'ui.router',
     'ngResource',
-    'angular-jwt'
+    'angular-jwt',
+    'ui.bootstrap'
   ]);

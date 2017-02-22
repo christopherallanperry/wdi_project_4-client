@@ -4,7 +4,7 @@ angular
 
 surveyFactory.$inject = ['API', '$resource'];
 function surveyFactory(API, $resource){
-  return $resource(`${API}/surveys/:id`, { id: '@_id'}, {
+  return $resource(`${API}/surveys/:id`, { id: '@id'}, {
     update: {method: 'PUT'}
   });
 }

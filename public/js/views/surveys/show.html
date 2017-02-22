@@ -1,3 +1,54 @@
-<h2>You have reached the response page</h2>
+<h1>{{surveyShow.survey.title}}</h1>
 
-<p ng-model="surveyShow">{{surveyShow.title}}</p>
+<div ng-repeat="question in surveyShow.survey.questions track by $index">
+  <form
+    class="clearfix"
+    ng-controller="QuestionShowCtrl as questionShow"
+    ng-init="questionShow.findAnswer(main.user, question)"
+    ng-submit="questionShow.createAnswer(question, questionShow.answer)">
+    <h2>Question {{ $index + 1 }}</h2>
+    <div class="form-group" ng-if="question.question_type == 'text'">
+      <label>{{ question.question_text }}</label>
+      <textarea class="form-control" ng-model="questionShow.answer.response">{{ questionShow.answer.response }}</textarea>
+    </div>
+
+    <div class="form-group" ng-if="question.question_type == 'boolean'">
+      <label>{{ question.question_text }}</label>
+      <div class="btn-group btn-group-justified">
+        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'true'">True</label>
+        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'false'">False</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-if="question.question_type == 'integer'">
+      <label>{{ question.question_text }}</label>
+      <div class="btn-group btn-group-justified">
+        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'1'">1</label>
+        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'2'">2</label>
+        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'3'">3</label>
+        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'4'">4</label>
+        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'5'">5</label>
+        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'n/a'">n/a</label>
+      </div>
+    </div>
+
+    <input
+      class="btn btn-primary pull-right"
+      ng-if="questionShow.answer.user_id"
+      type="submit"
+      value="Update">
+    <input
+      class="btn btn-primary pull-right"
+      ng-if="!questionShow.answer.user_id && $index == surveyShow.survey.questions.length-1"
+      type="submit"
+      value="Finish">
+    <input
+      class="btn btn-primary pull-right"
+      ng-if="!questionShow.answer.user_id && $index != surveyShow.survey.questions.length-1"
+      type="submit"
+      value="Next">
+  </form>
+
+
+
+</div>
