@@ -1,39 +1,42 @@
-<h1>Submit a new survey</h1>
-<form ng-hide="surveysNew.surveyInitiated" ng-submit="surveysNew.submitSurvey()">
-  <input type="text" placeholder="Title of survey" ng-model="surveysNew.survey.title">
-  <input type="date" ng-model="surveysNew.survey.started">
-  <input type="date" ng-model="surveysNew.survey.finished">
-  <input type="submit" name="submit" value="Submit">
-</form>
+<div class="container">
+  <h1>Submit a new survey</h1>
+  <form ng-hide="surveysNew.surveyInitiated" ng-submit="surveysNew.submitSurvey()">
+    <input type="text" placeholder="Title of survey" ng-model="surveysNew.survey.title">
+    <input type="date" ng-model="surveysNew.survey.started">
+    <input type="date" ng-model="surveysNew.survey.finished">
+    <input type="submit" name="submit" value="Submit">
+  </form>
 
-<div ng-show="surveysNew.surveyInitiated">
-  <h1>Thank you for starting your new survey "{{surveysNew.surveyInitiated.title}}"</h1>
-  <div ng-hide="surveysNew.questionTypeChosen">
-    <h4>Choose the type of question to add</h4>
-    <form ng-submit="surveysNew.chooseQuestionType()">
-      <select ng-model="surveysNew.pendingType" name="questionType">
-        <option value="boolean">Yes/No</option>
-        <option value="integer">Scalar</option>
-        <option value="text">Narrative</option>
-      </select>
-      <input type="submit" name="" value="Submit">
-    </form>
+  <div ng-show="surveysNew.surveyInitiated">
+    <h1>Thank you for starting your new survey "{{surveysNew.surveyInitiated.title}}"</h1>
+    <div ng-hide="surveysNew.questionTypeChosen">
+      <h4>Choose the type of question to add</h4>
+      <form ng-submit="surveysNew.chooseQuestionType()">
+        <select ng-model="surveysNew.pendingType" name="questionType">
+          <option value="boolean">Yes/No</option>
+          <option value="integer">Scalar</option>
+          <option value="text">Narrative</option>
+        </select>
+        <input type="submit" name="" value="Submit">
+      </form>
+    </div>
+    <div ng-show="surveysNew.questionTypeChosen">
+      <form ng-submit="surveysNew.addQuestion()">
+        <input placeholder="What's your question" type="text" ng-model="surveysNew.question.question_text" value="">
+        <input type="submit" name="" value="Save Question">
+      </form>
+    </div>
+    <div ng-show="surveysNew.surveyInitiated.questions.length">
+      <h2>Questions so far on this survey</h2>
+      <ul>
+        <li ng-repeat="question in surveysNew.surveyInitiated.questions">
+          <p>{{question.question_text}}</p>
+        </li>
+      </ul>
+    </div>
+    <div ng-show="surveysNew.surveyInitiated.questions.length">
+      <button type="button" ng-click="surveysNew.finishSurvey()">Finish Survey</button>
+    </div>
   </div>
-  <div ng-show="surveysNew.questionTypeChosen">
-    <form ng-submit="surveysNew.addQuestion()">
-      <input placeholder="What's your question" type="text" ng-model="surveysNew.question.question_text" value="">
-      <input type="submit" name="" value="Save Question">
-    </form>
-  </div>
-  <div ng-show="surveysNew.surveyInitiated.questions.length">
-    <h2>Questions so far on this survey</h2>
-    <ul>
-      <li ng-repeat="question in surveysNew.surveyInitiated.questions">
-        <p>{{question.question_text}}</p>
-      </li>
-    </ul>
-  </div>
-  <div ng-show="surveysNew.surveyInitiated.questions.length">
-    <button type="button" ng-click="surveysNew.finishSurvey()">Finish Survey</button>
-  </div>
+
 </div>

@@ -1,9 +1,10 @@
-<h1>{{surveyShow.survey.title}}</h1>
+<div class="container">
+  <h1>{{surveyShow.survey.title}}</h1>
 
-<button class="btn btn-primary btn-block" ui-sref="answersIndex({ id: surveyShow.survey.id })">Results</button>
+  <button class="btn btn-primary btn-block" ui-sref="answersIndex({ id: surveyShow.survey.id })">Results</button>
 
-<div ng-repeat="question in surveyShow.survey.questions track by $index">
-  <form
+  <div ng-repeat="question in surveyShow.survey.questions track by $index">
+    <form
     class="clearfix"
     ng-controller="QuestionShowCtrl as questionShow"
     ng-init="questionShow.findAnswer(main.user, question)"
@@ -35,22 +36,20 @@
     </div>
 
     <input
-      class="btn btn-primary pull-right"
-      ng-if="questionShow.answer.user_id"
-      type="submit"
-      value="Update">
+    class="btn btn-primary pull-right"
+    ng-if="questionShow.answer.user_id"
+    type="submit"
+    value="Update">
     <input
-      class="btn btn-primary pull-right"
-      ng-if="!questionShow.answer.user_id && $index == surveyShow.survey.questions.length-1"
-      type="submit"
-      value="Finish">
+    class="btn btn-primary pull-right"
+    ng-if="!questionShow.answer.user_id && $index == surveyShow.survey.questions.length-1"
+    type="submit"
+    value="Finish">
     <input
-      class="btn btn-primary pull-right"
-      ng-if="!questionShow.answer.user_id && $index != surveyShow.survey.questions.length-1"
-      type="submit"
-      value="Next">
+    class="btn btn-primary pull-right"
+    ng-if="!questionShow.answer.user_id && $index != surveyShow.survey.questions.length-1"
+    type="submit"
+    value="Next">
   </form>
-
-
-
+</div>
 </div>

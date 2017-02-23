@@ -1,9 +1,39 @@
-<h1>{{usersShow.user.first_name}} {{usersShow.user.last_name}}</h1>
-<button ui-sref="surveysNew" type="button" class="btn btn-primary btn-block">Submit new survey</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{usersShow.user.first_name}} {{usersShow.user.last_name}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div ui-sref="surveysNew" class="card">
+        <div class="centered">
+          <h2>Create a new survey</h2>
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <h2>My Surveys:</h2>
+        <ul class="list-unstyled">
+          <li ng-repeat="survey in usersShow.user.surveys">
+            <p ui-sref="surveyShow({ id: survey.id })">{{ survey.title }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
 
-<h2>My Surveys:</h2>
-<ul class="list-unstyled">
-  <li ng-repeat="survey in usersShow.user.surveys">
-    <p><a ui-sref="surveyShow({ id: survey.id })"><h2>{{survey.title}}</h2></a></p>
-  </li>
-</ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+
+      </div>
+    </div>
+  </div>
+</div>
