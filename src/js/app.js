@@ -3,5 +3,9 @@ angular
     'ui.router',
     'ngResource',
     'angular-jwt',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    '720kb.socialshare',
+    'chart.js'
   ]);
+
+// , 'chart.js'

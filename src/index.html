@@ -1,57 +1,85 @@
 <!DOCTYPE html>
-<html ng-app="myApp" lang=en>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My App</title>
-    <base href="/" />
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body  ng-controller="MainCtrl as main">
-    <header>
-      <nav class="navbar navbar-default">
-        <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" ui-sref="home">The Survey App</a>
-          </div>
+<html ng-app="myApp" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My App</title>
+  <base href="/" />
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <script src=
+  "http://cdn.rawgit.com/jtblin/angular-chart.js/master/dist/angular-chart.js"
+  type="text/javascript">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js" type=
+  "text/javascript">
+  </script>
+</head>
+<body  ng-controller="MainCtrl as main">
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" ui-sref="home">The Survey App</a>
+        </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <p class="navbar-text">Welcome back, {{ main.user.first_name }}</p>
-              </li>
-              <li ng-if="main.user">
-                <a ui-sref="usersShow({ id: main.user.id })">Profile</a>
-              </li>
-              <li ng-if="!main.user">
-                <a ui-sref="register">Register</a>
-              </li>
-              <li ng-if="!main.user">
-                <a ui-sref="login">Login</a>
-              </li>
-              <li ng-if="main.user">
-                <a ui-sref="usersIndex">Users</a>
-              </li>
-              <li ng-if="main.user">
-                <a ng-click="main.logout()">Logout</a>
-              </li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-    </header>
-    <main class="container" ui-view></main>
-  </body>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <p class="navbar-text">Welcome back, {{ main.user.first_name }}</p>
+            </li>
+            <li ng-if="main.user">
+              <a ui-sref="usersShow({ id: main.user.id })">Profile</a>
+            </li>
+            <li ng-if="main.user">
+              <a ui-sref="surveysIndex({ id: main.user.id })">Surveys</a>
+            </li>
+            <li ng-if="!main.user">
+              <a ui-sref="register">Register</a>
+            </li>
+            <li ng-if="!main.user">
+              <a ui-sref="login">Login</a>
+            </li>
+            <li ng-if="main.user">
+              <a ui-sref="usersIndex">Users</a>
+            </li>
+            <li ng-if="main.user">
+              <a ng-click="main.logout()">Logout</a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
+  <main class="container" ui-view></main>
+  <footer class="container">
+    <a href="#"
+    socialshare
+    socialshare-provider="twitter"
+    socialshare-text="720kb AngularJS Socialshare"
+    socialshare-hashtags="angularjs, angular-socialshare"
+    socialshare-url="http://720kb.net">
+    Share me on Twitter
+  </a>
+  <a href="#"
+  socialshare
+  socialshare-provider="facebook"
+  socialshare-text="720kb AngularJS Socialshare"
+  socialshare-hashtags="angularjs, angular-socialshare"
+  socialshare-url="http://720kb.net">
+  Share me on Facebook
+</a>
+</footer>
+</body>
 </html>

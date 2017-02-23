@@ -1,0 +1,17 @@
+<h2>Results for: {{ answersIndex.survey.title }}</h2>
+<p>{{ answersIndex.survey.answers }}</p>
+
+
+
+
+<div style="height:300px; width:300px;">
+  <canvas id="pie" class="chart chart-pie"
+    chart-data="answersIndex.pieData" chart-labels="answersIndex.pieLabels" chart-options="options">
+  </canvas>
+</div>
+
+<!-- <div style="height:300px; width:300px;">
+  <canvas id="bar" class="chart chart-bar"
+    chart-data="answersIndex.barData" chart-labels="answersIndex.barLabels" chart-series="answersIndex.barSeries">
+  </canvas>
+</div> -->

@@ -1,4 +1,5 @@
 const express = require('express');
+const shortid = require('shortid');
 const port    = process.env.PORT || 4000;
 const app     = express();
 const dest    = `${__dirname}/public`;

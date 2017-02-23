@@ -41,11 +41,23 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'SurveysNewCtrl',
     controllerAs: 'surveysNew'
   })
+  .state('surveysIndex', {
+    url: '/surveys',
+    templateUrl: '/js/views/surveys/index.html',
+    controller: 'SurveysIndexCtrl',
+    controllerAs: 'surveysIndex'
+  })
   .state('surveyShow', {
     url: '/surveys/:id',
     templateUrl: '/js/views/surveys/show.html',
     controller: 'SurveyShowCtrl',
     controllerAs: 'surveyShow'
+  })
+  .state('answersIndex', {
+    url: '/surveys/:id/results',
+    templateUrl: '/js/views/answers/index.html',
+    controller: 'AnswersIndexCtrl',
+    controllerAs: 'answersIndex'
   });
 
   $urlRouterProvider.otherwise('/');

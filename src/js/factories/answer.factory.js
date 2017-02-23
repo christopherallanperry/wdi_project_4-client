@@ -4,7 +4,7 @@ angular
 
 answerFactory.$inject = ['API', '$resource'];
 function answerFactory(API, $resource){
-  return $resource(`${API}/answers/:id`, { id: '@_id'}, {
+  return $resource(`${API}/answers/:id`, { id: '@id'}, {
     update: {method: 'PUT'}
   });
 }
