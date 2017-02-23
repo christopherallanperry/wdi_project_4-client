@@ -1,3 +1,3 @@
 angular
   .module('myApp')
-  .constant('API', 'http://localhost:3000');
+  .constant('API', 'https://localhost:3000');
