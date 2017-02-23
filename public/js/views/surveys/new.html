@@ -1,5 +1,31 @@
 <div class="container">
   <h1>Submit a new survey</h1>
+
+  <form ng-hide="surveysNew.surveyInitiated" ng-submit="surveysNew.submitSurvey()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" ng-model="surveysNew.survey.title">
+    </div>
+    <div class="form-group">
+      <label for="title">Start Date</label>
+      <input type="date" class="form-control" ng-model="surveysNew.survey.started">
+    </div>
+    <div class="form-group">
+      <label for="title">Finish Date</label>
+      <input type="date" class="form-control" ng-model="surveysNew.survey.finished">
+    </div>
+    <div class="form-group">
+      <input class="btn btn-success" type="submit" name="submit" value="Submit">
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+<!-- <div class="container">
   <form ng-hide="surveysNew.surveyInitiated" ng-submit="surveysNew.submitSurvey()">
     <input type="text" placeholder="Title of survey" ng-model="surveysNew.survey.title">
     <input type="date" ng-model="surveysNew.survey.started">
@@ -38,5 +64,4 @@
       <button type="button" ng-click="surveysNew.finishSurvey()">Finish Survey</button>
     </div>
   </div>
-
-</div>
+</div> -->
