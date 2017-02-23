@@ -1,3 +1,3 @@
 angular
   .module('myApp')
-  .constant('API', 'https://localhost:3000');
+  .constant('API', 'https://chris-perry-wdi-project-4-api.herokuapp.com');
