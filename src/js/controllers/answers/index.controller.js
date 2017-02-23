@@ -13,8 +13,7 @@ function AnswersIndexCtrl(Survey, $stateParams){
     vm.survey = data;
     let falseCount = 0;
     let trueCount = 0;
-
-
+    console.log(vm.survey);
     vm.pieArray = vm.survey.answers.filter(function(answer) {
       if (answer.question_id === 3) {
         answer.response === 'false' ? answer.response = 0 : answer.response = 1;
@@ -43,12 +42,10 @@ function AnswersIndexCtrl(Survey, $stateParams){
     vm.pieData = [falseCount,trueCount];
   });
 
+  vm.barLabels = ['Strongly Agree', 'Somewhat Agree', 'Neither Agree or Disagree', 'Somewhat Disagree', 'Strongly Disagree', 'N/A']; // , 'Set Zero Base for Y'
+  vm.barSeries = ['Series A'];
 
-  // vm.barLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  // vm.barSeries = ['Series A', 'Series B'];
-  //
-  // vm.barData = [
-  //   [65, 59, 80, 81, 56, 55, 40],
-  //   [28, 48, 40, 19, 86, 27, 90]
-  // ];
+  vm.barData = [
+    [65, 59, 80, 81, 56, 55, 10]
+  ];
 }
