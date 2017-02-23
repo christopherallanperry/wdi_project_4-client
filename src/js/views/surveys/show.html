@@ -1,55 +1,123 @@
 <div class="container">
-  <h1>{{surveyShow.survey.title}}</h1>
-
-  <button class="btn btn-primary btn-block" ui-sref="answersIndex({ id: surveyShow.survey.id })">Results</button>
-
-  <div ng-repeat="question in surveyShow.survey.questions track by $index">
-    <form
-    class="clearfix"
-    ng-controller="QuestionShowCtrl as questionShow"
-    ng-init="questionShow.findAnswer(main.user, question)"
-    ng-submit="questionShow.createAnswer(question, questionShow.answer)">
-    <h2>Question {{ $index + 1 }}</h2>
-    <div class="form-group" ng-if="question.question_type == 'text'">
-      <label>{{ question.question_text }}</label>
-      <textarea class="form-control" ng-model="questionShow.answer.response">{{ questionShow.answer.response }}</textarea>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{surveyShow.survey.title}}</h1>
     </div>
-
-    <div class="form-group" ng-if="question.question_type == 'boolean'">
-      <label>{{ question.question_text }}</label>
-      <div class="btn-group btn-group-justified">
-        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'true'">Yes</label>
-        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'false'">No</label>
+  </div>
+  <div class="row">
+    <div class="col-md-12 card" ng-repeat="question in surveyShow.survey.questions track by $index">
+      <form
+      class="clearfix"
+      ng-controller="QuestionShowCtrl as questionShow"
+      ng-init="questionShow.findAnswer(main.user, question)"
+      ng-submit="questionShow.createAnswer(question, questionShow.answer)">
+      <h2>Question {{ $index + 1 }}</h2>
+      <div class="form-group" ng-if="question.question_type == 'text'">
+        <label>{{ question.question_text }}</label>
+        <textarea class="form-control" ng-model="questionShow.answer.response">{{ questionShow.answer.response }}</textarea>
       </div>
-    </div>
 
-    <div class="form-group" ng-if="question.question_type == 'integer'">
-      <label>{{ question.question_text }}</label>
-      <div class="btn-group btn-group-justified">
-        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'1'">Strongly Disagree</label>
-        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'2'">Somewhat Disagree</label>
-        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'3'">Neither Agree nor Disagree</label>
-        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'4'">Somewhat Agree</label>
-        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'5'">Strongly Agree</label>
-        <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'6'">N/A</label>
+      <div class="form-group" ng-if="question.question_type == 'boolean'">
+        <label>{{ question.question_text }}</label>
+        <div class="btn-group btn-group-justified">
+          <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'true'">Yes</label>
+          <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'false'">No</label>
+        </div>
       </div>
-    </div>
 
-    <input
-    class="btn btn-primary pull-right"
-    ng-if="questionShow.answer.user_id"
-    type="submit"
-    value="Update">
-    <input
-    class="btn btn-primary pull-right"
-    ng-if="!questionShow.answer.user_id && $index == surveyShow.survey.questions.length-1"
-    type="submit"
-    value="Finish">
-    <input
-    class="btn btn-primary pull-right"
-    ng-if="!questionShow.answer.user_id && $index != surveyShow.survey.questions.length-1"
-    type="submit"
-    value="Next">
-  </form>
+      <div class="form-group" ng-if="question.question_type == 'integer'">
+        <label>{{ question.question_text }}</label>
+        <div class="btn-group btn-group-justified">
+          <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'1'">Strongly Disagree</label>
+          <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'2'">Somewhat Disagree</label>
+          <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'3'">Neutral</label>
+          <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'4'">Somewhat Agree</label>
+          <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'5'">Strongly Agree</label>
+          <label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'6'">N/A</label>
+        </div>
+      </div>
+
+      <input
+      class="btn btn-primary pull-right"
+      ng-if="questionShow.answer.user_id"
+      type="submit"
+      value="Update">
+      <input
+      class="btn btn-primary pull-right"
+      ng-if="!questionShow.answer.user_id && $index == surveyShow.survey.questions.length-1"
+      type="submit"
+      value="Finish">
+      <input
+      class="btn btn-primary pull-right"
+      ng-if="!questionShow.answer.user_id && $index != surveyShow.survey.questions.length-1"
+      type="submit"
+      value="Next">
+    </form>
+  </div>
+</div>
+<button class="btn btn-success btn-block" ui-sref="answersIndex({ id: surveyShow.survey.id })">Results</button>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+<h1>{{surveyShow.survey.title}}</h1>
+
+<div ng-repeat="question in surveyShow.survey.questions track by $index">
+<form
+class="clearfix"
+ng-controller="QuestionShowCtrl as questionShow"
+ng-init="questionShow.findAnswer(main.user, question)"
+ng-submit="questionShow.createAnswer(question, questionShow.answer)">
+<h2>Question {{ $index + 1 }}</h2>
+<div class="form-group" ng-if="question.question_type == 'text'">
+<label>{{ question.question_text }}</label>
+<textarea class="form-control" ng-model="questionShow.answer.response">{{ questionShow.answer.response }}</textarea>
+</div>
+
+<div class="form-group" ng-if="question.question_type == 'boolean'">
+<label>{{ question.question_text }}</label>
+<div class="btn-group btn-group-justified">
+<label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'true'">Yes</label>
+<label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'false'">No</label>
 </div>
 </div>
+
+<div class="form-group" ng-if="question.question_type == 'integer'">
+<label>{{ question.question_text }}</label>
+<div class="btn-group btn-group-justified">
+<label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'1'">Strongly Disagree</label>
+<label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'2'">Somewhat Disagree</label>
+<label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'3'">Neutral</label>
+<label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'4'">Somewhat Agree</label>
+<label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'5'">Strongly Agree</label>
+<label class="btn btn-default" ng-model="questionShow.answer.response" uib-btn-radio="'6'">N/A</label>
+</div>
+</div>
+
+<input
+class="btn btn-primary pull-right"
+ng-if="questionShow.answer.user_id"
+type="submit"
+value="Update">
+<input
+class="btn btn-primary pull-right"
+ng-if="!questionShow.answer.user_id && $index == surveyShow.survey.questions.length-1"
+type="submit"
+value="Finish">
+<input
+class="btn btn-primary pull-right"
+ng-if="!questionShow.answer.user_id && $index != surveyShow.survey.questions.length-1"
+type="submit"
+value="Next">
+</form>
+</div> -->
+<!--
+<button class="btn btn-primary btn-block" ui-sref="answersIndex({ id: surveyShow.survey.id })">Results</button>
+</div> -->
