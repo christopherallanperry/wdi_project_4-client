@@ -8,8 +8,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
+  font-size: 30px;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+form {
+  border-radius: 4px;
+  padding: 15px;
+  background-color: #f9f9f9;
 }
 
 .centered {
@@ -20,11 +27,6 @@ h2 {
   text-align: center;
 }
 
-form {
-  border-radius: 4px;
-  padding: 15px;
-  background-color: #f9f9f9;
-}
 
 .card {
   border-radius: 4px;
@@ -34,12 +36,13 @@ form {
   margin: 5px -15px 5px 0px;
 
   .glyphicon-plus {
+    color: #e00;
+    cursor: pointer;
     font-size: 110px;
+    font-weight: bolder;
   }
 
-  h2 {
-    font-size: 30px;
-  }
+
 
   ul {
     margin: 25px;
@@ -51,14 +54,24 @@ form {
 
       p {
         cursor: pointer;
+        padding-left: 10px;
 
         &:hover {
+          background-color: rgba(255, 0, 0, 0.1);
+          border-radius: 4px;
           font-weight: 800;
         }
       }
 
     }
   }
+}
+
+.card-wide {
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin: 10px 0px;
 }
 
 .navbar {
@@ -76,6 +89,10 @@ form {
 
 .navbar-default .navbar-brand, .navbar-default .navbar-text, .navbar-default .navbar-nav > li > a {
   color: #eee;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-text:hover, .navbar-default .navbar-nav > li > a:hover {
+  color: #e00;
 }
 
 .homepage {
@@ -98,4 +115,27 @@ form {
 
 .homepage-image {
   margin-top: -135px;
+}
+
+.comment-indent {
+  padding-left: 1em;
+}
+
+.btn-results {
+  line-height: 2.5em;
+  margin: 0.5em auto 2em auto;
+  max-width: 60%;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.user-details {
+  clear: both;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.user-name {
+  margin-top: 0.8em;
 }

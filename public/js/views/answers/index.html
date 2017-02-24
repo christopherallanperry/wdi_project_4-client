@@ -1,33 +1,33 @@
 <div class="container">
-  <h2>Results for: {{ answersIndex.survey.title }}</h2>
-
-  <div ng-repeat="questionSummary in answersIndex.survey.summary track by $index">
-    <h2>Question {{ $index + 1 }}</h2>
-    <p>{{ questionSummary.question.question_text }}</p>
-
-    <div ng-if="questionSummary.question.question_type == 'boolean'" style="height:300px; width:300px;">
-      <canvas
-      id="pie"
-      class="chart chart-pie"
-      chart-data="questionSummary.summary.data"
-      chart-labels="questionSummary.summary.labels">
-    </canvas>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Results for: "{{ answersIndex.survey.title }}"</h2>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-wide" ng-repeat="questionSummary in answersIndex.survey.summary track by $index">
+        <h3>Question {{ $index + 1 }}: "{{ questionSummary.question.question_text }}"</h3>
 
-  <div ng-if="questionSummary.question.question_type == 'integer'" style="height:400px; width:700px;">
-    <canvas
-    id="bar"
-    class="chart chart-bar"
-    chart-data="questionSummary.summary.data"
-    chart-labels="questionSummary.summary.labels">
-  </canvas>
-</div>
+        <div ng-if="questionSummary.question.question_type == 'boolean'" style="height:250px; width:250px;">
+          <canvas id="pie" class="chart chart-pie" chart-data="questionSummary.summary.data"
+          chart-labels="questionSummary.summary.labels"></canvas>
+        </div>
 
-<ul ng-if="questionSummary.question.question_type == 'text'">
-  <li ng-repeat="answer in questionSummary.summary track by $index">
-    {{ answer}}
-  </li>
-</ul>
-</div>
+        <div ng-if="questionSummary.question.question_type == 'integer'" style="height:300px; width:600px;">
+          <canvas id="bar" class="chart chart-bar" chart-data="questionSummary.summary.data" chart-labels="questionSummary.summary.labels"></canvas>
+        </div>
 
+        <div ng-if="questionSummary.question.question_type == 'text'">
+          <div class="comment-indent">
+            <h4>Response(s) Received:</h4>
+            <p ng-repeat="answer in questionSummary.summary track by $index">
+              "{{ answer}}"
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

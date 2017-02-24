@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h1>{{usersShow.user.first_name}} {{usersShow.user.last_name}}</h1>
+    <div class="user-details">
+      <div class="col-md-2">
+        <img src="http://www.fillmurray.com/125/125" class="avatar" alt="">
+      </div>
+      <div class="col-md-10">
+        <h1 class="user-name">{{usersShow.user.first_name}} {{usersShow.user.last_name}}</h1>
+        <h4>Email: <a ng-href="{{mailLink}}">{{usersShow.user.email}}</a></h4>
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
       <div ui-sref="surveysNew" class="card">
         <div class="centered">
-          <h2>Create a new survey</h2>
+          <h2>Create New Survey</h2>
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </div>
       </div>
