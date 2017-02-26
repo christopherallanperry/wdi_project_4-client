@@ -7,5 +7,3 @@ angular
     '720kb.socialshare',
     'chart.js'
   ]);
-
-// , 'chart.js'
