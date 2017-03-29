@@ -7,7 +7,7 @@ Whilst small in the overall development process, the part that pleased me most, 
 <div class="indented">
   <h4>Try the project on Heroku: <a href="https://chris-perry-wdi-project-4.herokuapp.com/">Our Survey Said...</a></h4>
   <h4>View the client code on GitHub: <a href="https://github.com/christopherallanperry/wdi_project_4-client">This repo</a></h4>
-  <h4>View the API code on GitHub: <a href="https://github.com/christopherallanperry/wdi_project_4-api">Twdi_project_4-api</a></h4>
+  <h4>View the API code on GitHub: <a href="https://github.com/christopherallanperry/wdi_project_4-api">wdi_project_4-api</a></h4>
 </div>
 
 ### Project Aims
